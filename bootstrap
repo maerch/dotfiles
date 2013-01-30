@@ -1,0 +1,4 @@
+#!/bin/bash
+
+ln -s vim/.vimrc.after ~/.vimrc.after
+ln -s vim/.gvimrc.after ~/.gvimrc.after

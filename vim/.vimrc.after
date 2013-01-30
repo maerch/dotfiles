@@ -1,0 +1,10 @@
+" Currently using Janus with default settings 
+
+" Use Tomorrow color scheme installed in ~/.janus
+colorscheme Tomorrow-Night
+
+" Let the buffer change without saving the current buffer
+set hidden
+
+" No beep anymore
+set visualbell
