@@ -1,4 +1,0 @@
-" Remove gui toolbar of macvim
-if has("gui_running")
-    set guioptions=egmrt
-endif
