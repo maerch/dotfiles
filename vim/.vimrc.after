@@ -1,5 +1,6 @@
 " Currently using Janus with default settings 
 
+
 " Use Tomorrow color scheme installed in ~/.janus
 colorscheme Tomorrow-Night
 
@@ -8,3 +9,6 @@ set hidden
 
 " No beep anymore
 set visualbell
+
+" Correct syntax-highlight for scss files (OSX)
+au BufRead,BufNewFile *.scss set filetype=scss
