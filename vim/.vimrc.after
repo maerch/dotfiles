@@ -1,14 +1,62 @@
 " Currently using Janus with default settings 
 
+set encoding=utf-8
 
 " Use Tomorrow color scheme installed in ~/.janus
 colorscheme Tomorrow-Night
+
+" Wraps and indicates if a line was wrapped
+set wrap
+set showbreak=↪
 
 " Let the buffer change without saving the current buffer
 set hidden
 
 " No beep anymore
 set visualbell
+
+" Remaping beginning and end of line
+noremap H ^
+noremap L $
+
+" j/k working on wrapped lines
+noremap j gj
+noremap k gk
+noremap gj j
+noremap gk k
+
+" Moving single lines
+nmap <M-Up> [e
+nmap <M-Down> ]e
+nmap <M-k> [e
+nmap <M-j> ]e
+
+" Bubble multiple lines
+vmap <M-Up> [egv
+vmap <M-Down> ]egv
+vmap <M-k> [egv
+vmap <M-j> ]egv
+
+" Easy buffer navigation
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+
+" Minimum number of lines above and below the cursor
+set scrolloff=5
+
+" Highlight current line
+set cursorline
+hi CursorLine term=bold cterm=bold guibg=Grey20
+
+" Cursor is in the center after search
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+nnoremap g* g*zz
+nnoremap g# g#zz
 
 " Correct syntax-highlight for scss files (OSX)
 au BufRead,BufNewFile *.scss set filetype=scss
