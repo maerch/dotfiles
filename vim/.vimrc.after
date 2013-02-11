@@ -58,5 +58,9 @@ nnoremap # #zz
 nnoremap g* g*zz
 nnoremap g# g#zz
 
+" Hightlight text which goes over 80 columns
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
+
 " Correct syntax-highlight for scss files (OSX)
 au BufRead,BufNewFile *.scss set filetype=scss
