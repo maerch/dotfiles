@@ -62,5 +62,11 @@ nnoremap g# g#zz
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
 
+" Clear search with <leader><space>
+nnoremap <leader><space> :noh<cr>
+
+" Substitution is always global
+set gdefault
+
 " Correct syntax-highlight for scss files (OSX)
 au BufRead,BufNewFile *.scss set filetype=scss
