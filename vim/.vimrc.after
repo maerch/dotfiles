@@ -62,6 +62,9 @@ nnoremap g# g#zz
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
 
+" Changing color of matching brackets
+hi! link MatchParen Search
+
 " Clear search with <leader><space>
 nnoremap <leader><space> :noh<cr>
 
