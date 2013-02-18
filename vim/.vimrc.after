@@ -11,6 +11,10 @@ set showbreak=↪
 " Tab settings
 set ts=2 sts=2 sw=2 expandtab
 
+" Intendation without losing visual selection
+vmap > >gv
+vmap < <gv
+
 " Let the buffer change without saving the current buffer
 set hidden
 
