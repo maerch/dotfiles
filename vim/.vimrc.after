@@ -1,5 +1,4 @@
 " Currently using Janus with default settings 
-
 set encoding=utf-8
 
 " Use Tomorrow color scheme installed in ~/.janus
@@ -8,6 +7,9 @@ colorscheme Tomorrow-Night
 " Wraps and indicates if a line was wrapped
 set wrap
 set showbreak=↪
+
+" Tab settings
+set ts=2 sts=2 sw=2 expandtab
 
 " Let the buffer change without saving the current buffer
 set hidden
