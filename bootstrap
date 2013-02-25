@@ -7,3 +7,5 @@ export current_path=`pwd`
 
 ln -s $current_path/vim/.vimrc.after ~/.vimrc.after
 ln -s $current_path/vim/.gvimrc.after ~/.gvimrc.after
+
+ln -s $current_path/zsh/.zshrc ~/.zshrc
