@@ -74,6 +74,9 @@ hi! link MatchParen Search
 " Clear search with <leader><space>
 nnoremap <leader><space> :noh<cr>
 
+" Clear search with escape key
+nnoremap <esc> :noh<cr><esc>
+
 " Substitution is always global
 set gdefault
 
