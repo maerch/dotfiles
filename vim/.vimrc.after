@@ -2,7 +2,14 @@
 set encoding=utf-8
 
 " Use Tomorrow color scheme installed in ~/.janus
-colorscheme Tomorrow-Night
+" colorscheme Tomorrow-Night
+
+" User solarized dark 
+" set background=dark
+" colorscheme solarized
+
+" Use Steve Losh's badwolf colorscheme
+colorscheme badwolf
 
 " Wraps and indicates if a line was wrapped
 set wrap
