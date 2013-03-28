@@ -95,3 +95,6 @@ au FocusLost * :silent! wall
 
 " Correct syntax-highlight for scss files (OSX)
 au BufRead,BufNewFile *.scss set filetype=scss
+
+" Enabled for ruby-blocks plugin
+runtime macros/matchit.vim
