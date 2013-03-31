@@ -78,6 +78,16 @@ nnoremap * *<c-o>
 " highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 " match OverLength /\%81v.\+/
 
+" Folding
+set foldmethod=indent
+set nofoldenable
+
+" Space to fold
+nnoremap <Space> za
+"
+" Center after folding
+nnoremap zi zizz
+
 " Changing color of matching brackets
 hi! link MatchParen Search
 
