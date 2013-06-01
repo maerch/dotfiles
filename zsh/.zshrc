@@ -38,6 +38,8 @@ alias testing='echo "test"'
 alias tmux='tmux -u'
 alias vim='mvim -v'
 
+export EDITOR="vim"
+
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
