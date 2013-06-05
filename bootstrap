@@ -1,13 +1,7 @@
 #!/usr/bin/env ruby
 
 Dir.chdir(File.dirname(__FILE__))
-Dir["**/.*{rc,conf}*"].each do |file|
-
-  target = File.expand_path("~/#{File.basename(file)}")
-  source = File.expand_path(file)
-
-  File.delete(target) if File.exists? target
-  File.symlink(source, target)
-
-  puts "Created link #{source} -> #{target}"
+Dir["*"].select{ |path| File.directory? path }.each do |directory|
+  install_script = "#{directory}/install"
+  load(install_script) if File.exists? install_script
 end

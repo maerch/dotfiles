@@ -1,22 +1,24 @@
-" Currently using Janus with default settings 
-set encoding=utf-8
+execute pathogen#infect()
+syntax on
 
-" Use Tomorrow color scheme installed in ~/.janus
-" colorscheme Tomorrow-Night
-
-" User solarized dark 
-" set background=dark
-" colorscheme solarized
+" Show line numbers
+set number
 
 " Use Steve Losh's badwolf colorscheme
 colorscheme badwolf
+
+" Prevent encoding vietnam
+set encoding=utf-8
 
 " Wraps and indicates if a line was wrapped
 set wrap
 set showbreak=↪
 
-" Tab settings
+" General indentation settings
 set ts=2 sts=2 sw=2 expandtab
+
+" Turn on indentation based on the file type
+filetype plugin indent on
 
 " Intendation without losing visual selection
 vmap > >gv
@@ -78,18 +80,11 @@ nnoremap * *<c-o>
 " highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 " match OverLength /\%81v.\+/
 
-" Folding
-set foldmethod=indent
-set nofoldenable
-
-" Space to fold
-nnoremap <Space> za
-"
-" Center after folding
-nnoremap zi zizz
-
 " Changing color of matching brackets
 hi! link MatchParen Search
+
+" Highlight search
+set hlsearch
 
 " Clear search with <leader><space>
 nnoremap <leader><space> :noh<cr>
@@ -106,5 +101,9 @@ au FocusLost * :silent! wall
 " Correct syntax-highlight for scss files (OSX)
 au BufRead,BufNewFile *.scss set filetype=scss
 
+" Change shape of cursor depending on mode (This is for tmux inside iTerm2)
+let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+
 " Enabled for ruby-blocks plugin
-runtime macros/matchit.vim
+" runtime macros/matchit.vim

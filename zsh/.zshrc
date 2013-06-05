@@ -36,7 +36,7 @@ plugins=(ruby osx svn git brew rvm gem)
 
 alias testing='echo "test"'
 alias tmux='tmux -u'
-alias vim='mvim -v'
+# alias vim='mvim -v'
 
 export EDITOR="vim"
 
