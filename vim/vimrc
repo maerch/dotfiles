@@ -90,7 +90,7 @@ set hlsearch
 nnoremap <leader><space> :noh<cr>
 
 " Clear search with escape key
-nnoremap <esc> :noh<cr><esc>
+" nnoremap <esc> :noh<cr><esc>
 
 " Substitution is always global
 set gdefault
