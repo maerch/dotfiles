@@ -98,6 +98,10 @@ set gdefault
 " Save when losing focus
 au FocusLost * :silent! wall
 
+" Enables Powerline
+set laststatus=2
+let g:Powerline_symbols = 'unicode'
+
 " Correct syntax-highlight for scss files (OSX)
 au BufRead,BufNewFile *.scss set filetype=scss
 
