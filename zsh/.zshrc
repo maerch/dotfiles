@@ -43,4 +43,4 @@ export EDITOR="vim"
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/maerch/.rvm/gems/ruby-1.9.3-p194/bin:/Users/maerch/.rvm/gems/ruby-1.9.3-p194@global/bin:/Users/maerch/.rvm/rubies/ruby-1.9.3-p194/bin:/Users/maerch/.rvm/bin:/Users/maerch/.rvm/bin
+export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/maerch/.rvm/gems/ruby-1.9.3-p194/bin:/Users/maerch/.rvm/gems/ruby-1.9.3-p194@global/bin:/Users/maerch/.rvm/rubies/ruby-1.9.3-p194/bin:/Users/maerch/.rvm/bin:/Users/maerch/.rvm/bin
