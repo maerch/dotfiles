@@ -22,6 +22,9 @@
 [submodule "vim/bundle/vim-ack"]
 	path = vim/bundle/vim-ack
 	url = https://github.com/mileszs/ack.vim.git
-[submodule "vim/bundle/vitality.vim"]
-	path = vim/bundle/vitality.vim
+[submodule "vim/bundle/vim-airline"]
+	path = vim/bundle/vim-airline
+	url = https://github.com/bling/vim-airline.git
+[submodule "vim/bundle/vim-vitality"]
+	path = vim/bundle/vim-vitality
 	url = https://github.com/sjl/vitality.vim.git
