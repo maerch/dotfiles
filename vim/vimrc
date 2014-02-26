@@ -1,4 +1,5 @@
 execute pathogen#infect()
+set nocompatible
 syntax on
 
 " Show line numbers
@@ -16,6 +17,9 @@ set showbreak=↪
 
 " General indentation settings
 set ts=2 sts=2 sw=2 expandtab
+
+" Working backspace
+set backspace=2
 
 " Turn on indentation based on the file type
 filetype plugin indent on
@@ -98,9 +102,23 @@ set gdefault
 " Save when losing focus
 au FocusLost * :silent! wall
 
-" Enables Powerline
+" vim-airline
 set laststatus=2
-let g:Powerline_symbols = 'unicode'
+set ttimeoutlen=50
+let g:airline_powerline_fonts=0
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_linecolumn_prefix = '␊ '
+let g:airline_linecolumn_prefix = '␤ '
+let g:airline_linecolumn_prefix = '¶ '
+let g:airline_fugitive_prefix = '⎇ '
+let g:airline_paste_symbol = 'ρ'
+let g:airline_paste_symbol = 'Þ'
+let g:airline_paste_symbol = '∥'
+
 
 " Correct syntax-highlight for scss files (OSX)
 au BufRead,BufNewFile *.scss set filetype=scss
