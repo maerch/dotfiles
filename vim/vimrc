@@ -126,5 +126,12 @@ au BufRead,BufNewFile *.scss set filetype=scss
 " Use vitality even in a ssh session (will break for non iTerm2 sessions)
 let g:vitality_always_assume_iterm = 1
 
+" Ignore for CTRL-P
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/_site/*
+
+" Use mixed mode (MRU, files and buffer) as default for CTRL-P
+let g:ctrlp_cmd = 'CtrlPMixed'
+
 " Enabled for ruby-blocks plugin
 " runtime macros/matchit.vim
+
