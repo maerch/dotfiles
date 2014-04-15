@@ -1,6 +1,7 @@
 execute pathogen#infect()
 set nocompatible
 syntax on
+set noswapfile
 
 " Show line numbers
 set number
