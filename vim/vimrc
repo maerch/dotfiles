@@ -136,3 +136,5 @@ let g:ctrlp_cmd = 'CtrlPMixed'
 " Enabled for ruby-blocks plugin
 " runtime macros/matchit.vim
 
+" Highlight background after the 80th column
+execute "set colorcolumn=" . join(range(81,335), ',')
