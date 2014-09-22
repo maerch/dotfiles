@@ -3,11 +3,10 @@ set nocompatible
 syntax on
 set noswapfile
 
+colorscheme monokai
+
 " Show line numbers
 set number
-
-" Use Steve Losh's badwolf colorscheme
-colorscheme badwolf
 
 " Prevent encoding vietnam
 set encoding=utf-8
@@ -81,18 +80,26 @@ nnoremap g# g#zz
 " Don't move on *
 nnoremap * *<c-o>
 
-" Hightlight text which goes over 80 columns
-" highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-" match OverLength /\%81v.\+/
-
 " Changing color of matching brackets
 hi! link MatchParen Search
 
 " Highlight search
 set hlsearch
 
+" Leader needs space
+let mapleader = "\<Space>"
+
 " Clear search with <leader><space>
 nnoremap <leader><space> :noh<cr>
+
+" Save with the leader + w
+nnoremap <Leader>w :w<CR>
+
+" Ctrlp wo/ the pinky Ctrl
+nnoremap <Leader>p :CtrlP<CR>
+
+" Reload the vimrc
+nnoremap <Leader>r :source $MYVIMRC<CR>
 
 " Clear search with escape key
 " nnoremap <esc> :noh<cr><esc>
@@ -106,20 +113,8 @@ au FocusLost * :silent! wall
 " vim-airline
 set laststatus=2
 set ttimeoutlen=50
-let g:airline_powerline_fonts=0
-" unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_linecolumn_prefix = '␊ '
-let g:airline_linecolumn_prefix = '␤ '
-let g:airline_linecolumn_prefix = '¶ '
-let g:airline_fugitive_prefix = '⎇ '
-let g:airline_paste_symbol = 'ρ'
-let g:airline_paste_symbol = 'Þ'
-let g:airline_paste_symbol = '∥'
-
+let g:airline_powerline_fonts=1
+let g:airline#extensions#tabline#enabled = 1
 
 " Correct syntax-highlight for scss files (OSX)
 au BufRead,BufNewFile *.scss set filetype=scss
@@ -133,8 +128,8 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/_site/*
 " Use mixed mode (MRU, files and buffer) as default for CTRL-P
 let g:ctrlp_cmd = 'CtrlPMixed'
 
+" aka 'Oh, that's the key I have been hitting by accident'
+nnoremap Q <nop>
+
 " Enabled for ruby-blocks plugin
 " runtime macros/matchit.vim
-
-" Highlight background after the 80th column
-execute "set colorcolumn=" . join(range(81,335), ',')
