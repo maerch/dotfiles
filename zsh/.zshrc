@@ -32,7 +32,7 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(ruby osx svn git brew rvm gem)
+plugins=(ruby osx svn git brew gem)
 
 alias testing='echo "test"'
 alias tmux='tmux -u'
@@ -42,5 +42,8 @@ export EDITOR="vim"
 
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
-export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/maerch/.rvm/gems/ruby-1.9.3-p194/bin:/Users/maerch/.rvm/gems/ruby-1.9.3-p194@global/bin:/Users/maerch/.rvm/rubies/ruby-1.9.3-p194/bin:/Users/maerch/.rvm/bin:/Users/maerch/.rvm/bin
+# Calling rbenv stuff
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# Local user path added in front for homebrew
+export PATH=/usr/local/bin:$PATH
