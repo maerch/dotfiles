@@ -95,6 +95,9 @@ nnoremap <leader><space> :noh<cr>
 " Save with the leader + w
 nnoremap <Leader>w :w<CR>
 
+" Quit vim
+nnoremap <Leader>q :q<CR>
+
 " Ctrlp wo/ the pinky Ctrl
 nnoremap <Leader>p :CtrlP<CR>
 
@@ -103,6 +106,9 @@ nnoremap <Leader>r :source $MYVIMRC<CR>
 
 " Clear search with escape key
 " nnoremap <esc> :noh<cr><esc>
+
+" Esc 
+imap jk <Esc>
 
 " Substitution is always global
 set gdefault
@@ -125,11 +131,16 @@ let g:vitality_always_assume_iterm = 1
 " Ignore for CTRL-P
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/_site/*
 
-" Use mixed mode (MRU, files and buffer) as default for CTRL-P
-let g:ctrlp_cmd = 'CtrlPMixed'
-
 " aka 'Oh, that's the key I have been hitting by accident'
 nnoremap Q <nop>
 
 " Enabled for ruby-blocks plugin
 " runtime macros/matchit.vim
+
+" Configuration for indent guide plugin
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_auto_colors = 0
+hi IndentGuidesEven ctermbg=237
+hi IndentGuidesOdd  ctermbg=237
+let g:indent_guides_start_level=2
+let g:indent_guides_guide_size=1
