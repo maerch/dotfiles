@@ -92,8 +92,8 @@ let mapleader = "\<Space>"
 " Clear search with <leader><space>
 nnoremap <leader><space> :noh<cr>
 
-" Save with the leader + w
-nnoremap <Leader>w :w<CR>
+" Save all with the leader + w
+nnoremap <Leader>w :wall<CR>
 
 " Quit vim
 nnoremap <Leader>q :q<CR>
