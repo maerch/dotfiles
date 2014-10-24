@@ -129,7 +129,7 @@ au BufRead,BufNewFile *.scss set filetype=scss
 let g:vitality_always_assume_iterm = 1
 
 " Ignore for CTRL-P
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/_site/*
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/_site/*,*/bower_components/*,*/node_modules/*
 
 " aka 'Oh, that's the key I have been hitting by accident'
 nnoremap Q <nop>
