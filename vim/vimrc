@@ -101,6 +101,9 @@ nnoremap <Leader>q :q<CR>
 " Ctrlp wo/ the pinky Ctrl
 nnoremap <Leader>p :CtrlP<CR>
 
+" copy visual selection to os clipboard
+vmap <Leader>y "+y
+
 " Reload the vimrc
 nnoremap <Leader>r :source $MYVIMRC<CR>
 
