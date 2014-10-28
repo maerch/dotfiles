@@ -1,23 +1,2 @@
 #!/usr/bin/env ruby
-
-puts "Configuring Vim..."
-%w[vimrc gvimrc].each do |file|
-  target = File.expand_path("~/.#{file}")
-  link   = File.expand_path("#{File.dirname(__FILE__)}/#{file}")
-
-  File.delete(target) if File.exists? target
-  File.symlink(link, target)
-
-  puts " * Created link #{target} -> #{link}"
-end
-
-target = File.expand_path("~/.vim/")
-if File.exists? target
-  require 'fileutils'
-  FileUtils.rm_r target 
-  puts " * Deleted #{target} directory"
-end
-
-link = File.expand_path(File.dirname(__FILE__))
-File.symlink(link, target)
-puts " * Created link #{target} -> #{link}"
+%w[vimrc gvimrc .].map { |rc| link("vim/#{rc}") }

@@ -1,0 +1,12 @@
+[user]
+	name = Marcin Skirzynski
+	email = marcin.skirzynski@gmail.com
+[core]
+	editor = vim
+[push]
+	default = simple
+[alias]
+  st = status -sb
+  lg = log --all --graph --decorate --oneline --abbrev-commit
+[http]
+	postBuffer = 2M

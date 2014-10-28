@@ -1,7 +1,0 @@
-#!/usr/bin/env ruby
-
-Dir.chdir(File.dirname(__FILE__))
-Dir["*"].select{ |path| File.directory? path }.each do |directory|
-  install_script = "#{directory}/install"
-  load(install_script) if File.exists? install_script
-end

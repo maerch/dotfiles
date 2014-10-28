@@ -1,0 +1,31 @@
+#!/usr/bin/env ruby
+
+def link file
+  file = File.expand_path file
+  File.directory?(file) ? link_dir(file) : link_file(file)
+end
+
+def link_file file
+  target = File.expand_path("~/.#{File.basename(file)}")
+  File.delete(target) if File.symlink? target
+  File.symlink(file, target)
+
+  puts " * Created link #{target} -> #{file}"
+end
+
+def link_dir dir
+  target = File.expand_path("~/.#{File.basename(dir)}/")
+  if File.symlink? target
+    require 'fileutils'
+    FileUtils.rm_r target 
+  end
+
+  File.symlink(dir, target)
+  puts " * Created link #{target} -> #{dir}"
+end
+
+Dir.chdir(File.dirname(__FILE__))
+Dir["*"].select{ |path| File.directory? path }.each do |directory|
+  install_script = "#{directory}/install"
+  load(install_script) if File.exists? install_script
+end
