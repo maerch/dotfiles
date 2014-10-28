@@ -119,6 +119,10 @@ set gdefault
 " Save when losing focus
 au FocusLost * :silent! wall
 
+" DelimitMate config
+let b:delimitMate_expand_cr=1
+let b:delimitMate_expand_space=1
+
 " vim-airline
 set laststatus=2
 set ttimeoutlen=50
