@@ -1,9 +1,29 @@
-execute pathogen#infect()
 set nocompatible
+filetype off
 syntax on
 set noswapfile
 
-colorscheme monokai
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+Plugin 'Raimondi/delimitMate'
+Plugin 'bling/vim-airline'
+Plugin 'sjl/badwolf'
+Plugin 'tpope/vim-endwise'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+
+colorscheme badwolf
 
 " Show line numbers
 set number
@@ -34,27 +54,11 @@ set hidden
 " No beep anymore
 set visualbell
 
-" Remaping beginning and end of line
-noremap H ^
-noremap L $
-
 " j/k working on wrapped lines
 noremap j gj
 noremap k gk
 noremap gj j
 noremap gk k
-
-" Moving single lines
-nmap <M-Up> [e
-nmap <M-Down> ]e
-nmap <M-k> [e
-nmap <M-j> ]e
-
-" Bubble multiple lines
-vmap <M-Up> [egv
-vmap <M-Down> ]egv
-vmap <M-k> [egv
-vmap <M-j> ]egv
 
 " Easy buffer navigation
 noremap <C-h> <C-w>h
@@ -98,9 +102,6 @@ nnoremap <Leader>w :wall<CR>
 " Quit vim
 nnoremap <Leader>q :q<CR>
 
-" Ctrlp wo/ the pinky Ctrl
-nnoremap <Leader>p :CtrlP<CR>
-
 " copy visual selection to os clipboard
 vmap <Leader>y "+y
 
@@ -110,17 +111,11 @@ nnoremap <Leader>r :source $MYVIMRC<CR>
 " Toggle paste mode
 set pastetoggle=<F10>
 
-" Clear search with escape key
-" nnoremap <esc> :noh<cr><esc>
-
 " Esc 
 imap jk <Esc>
 
 " Substitution is always global
 set gdefault
-
-" Save when losing focus
-au FocusLost * :silent! wall
 
 " DelimitMate config
 let b:delimitMate_expand_cr=1
@@ -135,22 +130,8 @@ let g:airline#extensions#tabline#enabled = 1
 " Correct syntax-highlight for scss files (OSX)
 au BufRead,BufNewFile *.scss set filetype=scss
 
-" Use vitality even in a ssh session (will break for non iTerm2 sessions)
-let g:vitality_always_assume_iterm = 1
-
-" Ignore for CTRL-P
+" Ignore a lot of stuff
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/_site/*,*/bower_components/*,*/node_modules/*
 
 " aka 'Oh, that's the key I have been hitting by accident'
 nnoremap Q <nop>
-
-" Enabled for ruby-blocks plugin
-" runtime macros/matchit.vim
-
-" Configuration for indent guide plugin
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_auto_colors = 0
-hi IndentGuidesEven ctermbg=237
-hi IndentGuidesOdd  ctermbg=237
-let g:indent_guides_start_level=2
-let g:indent_guides_guide_size=1
