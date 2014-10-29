@@ -16,6 +16,7 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'bling/vim-airline'
 Plugin 'sjl/badwolf'
 Plugin 'tpope/vim-endwise'
+Plugin 'Shougo/unite.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -107,6 +108,10 @@ vmap <Leader>y "+y
 
 " Reload the vimrc
 nnoremap <Leader>r :source $MYVIMRC<CR>
+
+" Unite.vim
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+nnoremap <C-p> :Unite file_rec buffer -start-insert<CR>
 
 " Toggle paste mode
 set pastetoggle=<F10>
