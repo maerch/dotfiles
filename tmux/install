@@ -1,2 +1,2 @@
 #!/usr/bin/env ruby
-link "tmux/tmuxrc"
+link "tmux/tmux.conf"
