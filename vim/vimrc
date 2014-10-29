@@ -138,5 +138,16 @@ au BufRead,BufNewFile *.scss set filetype=scss
 " Ignore a lot of stuff
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/_site/*,*/bower_components/*,*/node_modules/*
 
+" Cursor shape in insert/normal mode
+" For tmux running in iTerm2 on OS X
+" http://vim.wikia.com/wiki/Change_cursor_shape_in_different_modes
+let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+
+" Highlight current column as well
+au WinLeave * set nocursorline nocursorcolumn
+au WinEnter * set cursorline cursorcolumn
+set cursorline cursorcolumn
+
 " aka 'Oh, that's the key I have been hitting by accident'
 nnoremap Q <nop>
