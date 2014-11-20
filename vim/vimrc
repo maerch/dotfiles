@@ -88,6 +88,10 @@ nnoremap * *<c-o>
 " Changing color of matching brackets
 hi! link MatchParen Search
 
+" Mark 81th line
+highlight ColorColumn ctermbg=red
+call matchadd('ColorColumn', '\%81v', 100)
+
 " Highlight search
 set hlsearch
 
@@ -112,6 +116,8 @@ nnoremap <Leader>r :source $MYVIMRC<CR>
 " Unite.vim
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 nnoremap <C-p> :Unite file_rec buffer -start-insert<CR>
+call unite#custom#profile('files', 'context.ignorecase', 1)
+call unite#custom#profile('files', 'context.smartcase', 0)
 
 " Toggle paste mode
 set pastetoggle=<F10>
@@ -151,3 +157,4 @@ set cursorline cursorcolumn
 
 " aka 'Oh, that's the key I have been hitting by accident'
 nnoremap Q <nop>
+
