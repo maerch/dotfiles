@@ -119,6 +119,7 @@ call unite#filters#matcher_default#use(['matcher_fuzzy'])
 nnoremap <C-p> :Unite file_rec buffer -start-insert<CR>
 call unite#custom#profile('files', 'context.ignorecase', 1)
 call unite#custom#profile('files', 'context.smartcase', 0)
+call unite#filters#sorter_default#use(['sorter_rank'])
 
 " Toggle paste mode
 set pastetoggle=<F10>
