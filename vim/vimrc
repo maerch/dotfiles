@@ -90,8 +90,8 @@ nnoremap * *<c-o>
 hi! link MatchParen Search
 
 " Mark 81th line
-highlight ColorColumn ctermbg=red
-call matchadd('ColorColumn', '\%81v', 100)
+"highlight ColorColumn ctermbg=red
+"call matchadd('ColorColumn', '\%81v', 100)
 
 " Highlight search
 set hlsearch
