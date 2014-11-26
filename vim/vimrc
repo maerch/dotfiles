@@ -17,6 +17,7 @@ Plugin 'bling/vim-airline'
 Plugin 'sjl/badwolf'
 Plugin 'tpope/vim-endwise'
 Plugin 'Shougo/unite.vim'
+Plugin 'scrooloose/nerdcommenter.git'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
