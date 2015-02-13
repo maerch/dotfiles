@@ -16,8 +16,11 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'bling/vim-airline'
 Plugin 'sjl/badwolf'
 Plugin 'tpope/vim-endwise'
+Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/unite.vim'
-Plugin 'scrooloose/nerdcommenter.git'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -115,10 +118,13 @@ nnoremap <Leader>r :source $MYVIMRC<CR>
 
 " Unite.vim
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
-nnoremap <C-p> :Unite file_rec buffer -start-insert<CR>
+nnoremap <C-p> :Unite buffer file_rec/async:! -start-insert<CR>
+nnoremap <C-l> :Unite buffer -start-insert<CR>
 call unite#custom#profile('files', 'context.ignorecase', 1)
 call unite#custom#profile('files', 'context.smartcase', 0)
 call unite#filters#sorter_default#use(['sorter_rank'])
+" Using ag as recursive command.
+let g:unite_source_rec_async_command = 'ag --follow --nocolor --nogroup --hidden -g ""'
 
 " Toggle paste mode
 set pastetoggle=<F10>
