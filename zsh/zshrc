@@ -35,8 +35,10 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(ruby osx svn git brew gem)
 
 alias testing='echo "test"'
+alias be='bundle exec'
 alias tmux='tmux -u'
 # alias vim='mvim -v'
+
 
 export EDITOR="vim"
 
