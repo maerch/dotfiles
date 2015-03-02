@@ -98,6 +98,9 @@ hi! link MatchParen Search
 " Highlight search
 set hlsearch
 
+" Incremental Search please
+set incsearch
+
 " Leader needs space
 let mapleader = "\<Space>"
 
