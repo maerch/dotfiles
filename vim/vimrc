@@ -45,6 +45,10 @@ set showbreak=↪
 " General indentation settings
 set ts=2 sts=2 sw=2 expandtab
 
+" Do a smart break of line (do not start at the beginning of the line but on
+" the same indentation level)
+set breakindent
+
 " Working backspace
 set backspace=2
 
