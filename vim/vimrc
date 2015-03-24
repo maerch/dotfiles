@@ -23,7 +23,9 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'godlygeek/tabular'
+Plugin 'henrik/vim-indexed-search'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tpope/vim-commentary'
 
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'jgdavey/tslime.vim'
@@ -35,6 +37,8 @@ filetype plugin indent on    " required
 "filetype plugin on
 
 colorscheme badwolf
+let g:badwolf_darkgutter = 1
+let g:badwolf_tabline = 0
 
 " Show line numbers
 set number
@@ -158,6 +162,7 @@ set pastetoggle=<F10>
 
 " Esc 
 imap jk <Esc>
+let g:multi_cursor_quit_key='jk'
 
 " Substitution is always global
 set gdefault
@@ -172,20 +177,6 @@ map <Leader>a :call RunAllSpecs()<CR>
 " DelimitMate config
 let b:delimitMate_expand_cr=1
 let b:delimitMate_expand_space=1
-
-" Tabular
-if exists(":Tabularize")
-  nmap <Leader>a= :Tabularize /=<CR>
-  vmap <Leader>a= :Tabularize /=<CR>
-  nmap <Leader>a: :Tabularize /:\zs<CR>
-  vmap <Leader>a: :Tabularize /:\zs<CR>
-endif
-
-" vim-airline
-set laststatus=2
-set ttimeoutlen=50
-let g:airline_powerline_fonts=1
-let g:airline#extensions#tabline#enabled = 1
 
 " Correct syntax-highlight for scss files (OSX)
 au BufRead,BufNewFile *.scss set filetype=scss
