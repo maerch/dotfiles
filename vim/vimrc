@@ -129,6 +129,7 @@ vmap <Leader>y "+y
 nnoremap <Leader>r :source $MYVIMRC<CR>
 
 " Unite.vim
+" Make it a fuzzy CTRL-p alternative
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 nnoremap <C-p> :Unite buffer file_rec/async:! -start-insert<CR>
 nnoremap <C-l> :Unite buffer -start-insert<CR>
@@ -137,6 +138,19 @@ call unite#custom#profile('files', 'context.smartcase', 0)
 call unite#filters#sorter_default#use(['sorter_rank'])
 " Using ag as recursive command.
 let g:unite_source_rec_async_command = 'ag --follow --nocolor --nogroup --hidden -g ""'
+
+" Grep like search with the silver searcher
+let g:unite_source_grep_command = 'ag'
+nnoremap <C-o> :Unite grep:.<CR>
+let g:unite_source_grep_default_opts =
+      \ '--line-numbers --nocolor --nogroup --hidden --ignore ' .
+      \ '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'' ' .
+      \ '--ignore ''**/*.pyc'''
+let g:unite_source_grep_recursive_opt = ''
+
+" Search through yanks
+let g:unite_source_history_yank_enable = 1
+nnoremap <leader>y :<C-u>Unite history/yank<CR>
 
 " Toggle paste mode
 set pastetoggle=<F10>
