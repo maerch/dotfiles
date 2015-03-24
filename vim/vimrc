@@ -13,7 +13,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'Raimondi/delimitMate'
-Plugin 'bling/vim-airline'
+Plugin 'itchyny/lightline.vim'
 Plugin 'sjl/badwolf'
 Plugin 'tpope/vim-endwise'
 Plugin 'Shougo/vimproc.vim'
