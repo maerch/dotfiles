@@ -40,6 +40,12 @@ colorscheme badwolf
 let g:badwolf_darkgutter = 1
 let g:badwolf_tabline = 0
 
+" Always show the git gutter
+let g:gitgutter_sign_column_always = 1
+
+" Show git gutter signs after typing
+let g:gitgutter_realtime = 1
+
 " Show line numbers
 set number
 
