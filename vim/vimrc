@@ -27,6 +27,7 @@ Plugin 'henrik/vim-indexed-search'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-commentary'
 Plugin 'junegunn/vim-easy-align'
+Plugin 'rizzatti/dash.vim'
 
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'jgdavey/tslime.vim'
@@ -186,6 +187,9 @@ map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
+
+" Mapping to the Dash.app
+nmap <silent> <leader>d <Plug>DashSearch
 
 " DelimitMate config
 let b:delimitMate_expand_cr=1
