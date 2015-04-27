@@ -105,6 +105,9 @@ noremap <C-l> <C-w>l
 " Minimum number of lines above and below the cursor
 set scrolloff=5
 
+" Do not jump to the start of line while switching the buffers
+set nostartofline
+
 " Highlight current line
 set cursorline
 hi CursorLine term=bold cterm=bold guibg=Grey20
