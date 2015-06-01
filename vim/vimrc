@@ -27,7 +27,6 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'junegunn/vim-easy-align'
-Plugin 'rizzatti/dash.vim'
 
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'jgdavey/tslime.vim'
@@ -179,7 +178,6 @@ set pastetoggle=<F10>
 
 " Esc 
 imap jk <Esc>
-let g:multi_cursor_quit_key='jk'
 
 " Substitution is always global
 set gdefault
@@ -190,9 +188,6 @@ map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
-
-" Mapping to the Dash.app
-nmap <silent> <leader>d <Plug>DashSearch
 
 " DelimitMate config
 let b:delimitMate_expand_cr=1
@@ -217,4 +212,3 @@ set cursorline cursorcolumn
 
 " aka 'Oh, that's the key I have been hitting by accident'
 nnoremap Q <nop>
-
