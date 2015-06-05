@@ -197,5 +197,13 @@ au WinLeave * set nocursorline nocursorcolumn
 au WinEnter * set cursorline cursorcolumn
 set cursorline cursorcolumn
 
+"Persistent undo! Pure money.
+if exists("&undodir")
+    set undofile
+    let &undodir=&directory
+    set undolevels=500
+    set undoreload=500
+endif
+
 " aka 'Oh, that's the key I have been hitting by accident'
 nnoremap Q <nop>
