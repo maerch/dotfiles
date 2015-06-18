@@ -16,17 +16,20 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'itchyny/lightline.vim'
 Plugin 'sjl/badwolf'
 Plugin 'tpope/vim-endwise'
+
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/unite.vim'
+Plugin 'Shougo/neomru.vim'
+
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'junegunn/vim-easy-align'
+Plugin 'terryma/vim-expand-region'
 
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'jgdavey/tslime.vim'
@@ -42,6 +45,8 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
+
+source ~/.vim/unite.vim
 
 colorscheme badwolf
 let g:badwolf_darkgutter = 1
@@ -148,17 +153,6 @@ vmap <Leader>y "+y
 
 " Reload the vimrc
 nnoremap <Leader>r :source $MYVIMRC<CR>
-
-" Unite.vim
-" Make it a fuzzy CTRL-p alternative
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-nnoremap <C-p> :Unite buffer file_rec/async:! -start-insert<CR>
-nnoremap <C-l> :Unite buffer -start-insert<CR>
-call unite#custom#profile('files', 'context.ignorecase', 1)
-call unite#custom#profile('files', 'context.smartcase', 0)
-call unite#filters#sorter_default#use(['sorter_rank'])
-" Using ag as recursive command.
-let g:unite_source_rec_async_command = 'ag --follow --nocolor --nogroup --hidden -g ""'
 
 " Toggle paste mode
 set pastetoggle=<F10>
