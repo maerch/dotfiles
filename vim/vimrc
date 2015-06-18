@@ -34,12 +34,6 @@ Plugin 'terryma/vim-expand-region'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'jgdavey/tslime.vim'
 
-" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
-vmap <Enter> <Plug>(EasyAlign)
-
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
-
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -107,7 +101,7 @@ noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
 " Minimum number of lines above and below the cursor
-set scrolloff=5
+set scrolloff=10
 
 " Do not jump to the start of line while switching the buffers
 set nostartofline
