@@ -188,5 +188,9 @@ set cursorline cursorcolumn
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 
+" Trailing whitespace
+set list
+set listchars=trail:•
+
 " aka 'Oh, that's the key I have been hitting by accident'
 nnoremap Q <nop>
