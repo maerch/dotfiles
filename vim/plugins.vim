@@ -45,8 +45,6 @@ NeoBundle 'ap/vim-css-color'
 NeoBundle 'thoughtbot/vim-rspec'
 NeoBundle 'jgdavey/tslime.vim'
 
-NeoBundle 'lucasicf/vim-smooth-scroll'
-
 
 " My Bundles here:
 " Refer to |:NeoBundle-examples|.
