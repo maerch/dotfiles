@@ -3,10 +3,11 @@
 	email = marcin.skirzynski@gmail.com
 [core]
 	editor = vim
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [push]
 	default = simple
 [alias]
   st = status -sb
-  lg = log --all --graph --decorate --oneline --abbrev-commit
+  lg = log --graph --decorate --oneline --abbrev-commit
 [http]
 	postBuffer = 2M
