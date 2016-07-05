@@ -32,6 +32,7 @@ NeoBundle 'mxw/vim-jsx'
 
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'airblade/vim-rooter'
 
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-repeat'
