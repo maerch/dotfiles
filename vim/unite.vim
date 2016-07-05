@@ -1,12 +1,6 @@
-nnoremap <silent> <C-p> :Unite bookmark buffer file_rec/async:! -ignorecase -smartcase<CR>
+nnoremap <silent> <C-p> :Unite -start-insert -ignorecase -smartcase file file_rec/async:! file_mru<CR>
 nnoremap <silent> <C-g> :Unite grep:!<CR>
 nnoremap <silent> <C-o> :UniteResume<CR>
-nnoremap <silent> <C-y> :Unite history/yank<CR>
-
-nnoremap <silent> <C-i> :UniteBookmarkAdd<CR>
-nnoremap <silent> <C-a> :UniteBookmarkAdd<CR>
-
-nnoremap <silent><leader>lg :<C-u>Unite -buffer-name=grep grep<CR>
 
 " Start Insert
 let g:unite_enable_start_insert = 1
@@ -60,11 +54,13 @@ let g:unite_source_rec_async_command =
       \ ['ag', '--follow', '--nocolor', '--nogroup',
       \  '--hidden', '-g', '']
 
-let g:unite_source_grep_command = 'ag'
-let g:unite_source_grep_default_opts =
-      \ '-i --vimgrep --hidden --ignore ' .
-      \ '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
-let g:unite_source_grep_recursive_opt = ''
+if executable('ag')
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts =
+        \ '-i --vimgrep --nocolor --nogroup --hidden --ignore ' .
+        \ '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
+  let g:unite_source_grep_recursive_opt = ''
+endif
 
 "Quick outline, see an overview of this file
 "nnoremap <silent> <leader>o :<C-u>Unite -buffer-name=outline -vertical outline<CR>
