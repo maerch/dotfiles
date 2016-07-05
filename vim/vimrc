@@ -22,6 +22,14 @@ au CursorHold * checktime
 colorscheme jellybeans
 let g:lightline = {
       \ 'colorscheme': 'jellybeans',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'fugitive', 'filename' ] ]
+      \ },
+      \ 'component': {
+      \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}',
+      \   'filename': '%{expand("%:h")}/%t'
+      \ }
       \ }
 
 let g:badwolf_darkgutter = 1
