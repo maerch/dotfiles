@@ -20,15 +20,18 @@ set autoread
 au CursorHold * checktime
 
 colorscheme jellybeans
+
+" Status bar
 let g:lightline = {
       \ 'colorscheme': 'jellybeans',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'fugitive', 'filename' ] ]
+      \             [ 'ale', 'fugitive', 'filename' ] ]
       \ },
       \ 'component': {
       \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}',
-      \   'filename': '%{expand("%:h")}/%t'
+      \   'filename': '%{expand("%:h")}/%t',
+      \   'ale': '%{ALEGetStatusLine()}'
       \ }
       \ }
 
@@ -159,6 +162,21 @@ map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
+" Ale (async lint engine)
+let g:ale_sign_column_always = 1
+let g:ale_sign_error = '•'
+let g:ale_sign_warning = '•'
+let g:ale_statusline_format = ['✖ %d', '⚠ %d', '']
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+set statusline+=%#Error# " switch to Error highlight group
+set statusline+=%{ALEGetStatusLine()} " configured by ale_statusline_format
+set statusline+=%* " reset highlight group
+set statusline+=\  " space
+
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 " DelimitMate config
 let b:delimitMate_expand_cr=1
 let b:delimitMate_expand_space=1

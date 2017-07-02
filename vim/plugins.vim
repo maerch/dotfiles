@@ -15,7 +15,7 @@ NeoBundle 'tpope/vim-endwise'
 NeoBundle 'sjl/badwolf'
 NeoBundle 'nanotech/jellybeans.vim'
 
-NeoBundle 'scrooloose/syntastic.git'
+NeoBundle 'w0rp/ale'
 
 NeoBundle 'Shougo/vimproc.vim'
 NeoBundle 'Shougo/unite.vim'
