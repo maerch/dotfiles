@@ -110,6 +110,9 @@ nnoremap # #zz
 nnoremap g* g*zz
 nnoremap g# g#zz
 
+" Search for visual selected text with //
+vnoremap // y/<C-R>"<CR>
+
 " Don't move on *
 nnoremap * *<c-o>
 
