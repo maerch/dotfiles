@@ -78,6 +78,12 @@ set visualbell
 " Enable mouse support for all modes
 set mouse=a
 
+" Leader needs space
+let mapleader = "\<Space>"
+
+" Clear search with <leader><space>
+nnoremap <leader><space> :noh<cr>
+
 " Easy buffer navigation
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
@@ -124,12 +130,6 @@ set hlsearch
 
 " Incremental Search please
 set incsearch
-
-" Leader needs space
-let mapleader = "\<Space>"
-
-" Clear search with <leader><space>
-nnoremap <leader><space> :noh<cr>
 
 " Save all with the leader + w
 nnoremap <Leader>w :wall<CR>
