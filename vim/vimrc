@@ -1,19 +1,13 @@
 syntax on
 filetype off
 set noswapfile
-set nocompatible 
+set nocompatible
 
 source ~/.vim/plugins.vim
 source ~/.vim/unite.vim
 
-" JSX (React) config
-let g:jsx_ext_required = 0 " Allow JSX in normal JS files
-
-" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
- vmap <Enter> <Plug>(EasyAlign)
-
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
+set path=+**
+set wildmenu
 
 " check file change every 4 seconds ('CursorHold') and reload the buffer upon detecting change
 set autoread
@@ -30,16 +24,12 @@ let g:lightline = {
       \ },
       \ 'component': {
       \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}',
-      \   'filename': '%{expand("%:h")}/%t',
-      \   'ale': '%{ALEGetStatusLine()}'
+      \   'filename': '%{expand("%:h")}/%t'
       \ }
       \ }
-
-let g:badwolf_darkgutter = 1
-let g:badwolf_tabline = 0
 
 " Always show the git gutter
-let g:gitgutter_sign_column_always = 1
+set signcolumn=yes
 
 " Show git gutter signs after typing
 let g:gitgutter_realtime = 1
@@ -56,6 +46,11 @@ set encoding=utf-8
 " Wraps and indicates if a line was wrapped
 set wrap
 set showbreak=↪
+
+" j/k working on wrapped lines
+noremap j gj
+noremap gj j
+noremap gk k
 
 " General indentation settings
 set ts=2 sts=2 sw=2 expandtab
@@ -83,20 +78,25 @@ set visualbell
 " Enable mouse support for all modes
 set mouse=a
 
-" j/k working on wrapped lines
-noremap j gj
-noremap k gk
-noremap gj j
-noremap gk k
-
 " Easy buffer navigation
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
+" Split panes
+nnoremap <silent> <Leader>sv <C-w>v
+nnoremap <silent> <Leader>sh <C-w>S
+nnoremap <silent> <Leader>sc <C-w>c
+nnoremap <silent> <Leader>so <C-w>o
+nnoremap <silent> <Leader>se <C-w>=
+
 " Minimum number of lines above and below the cursor
 set scrolloff=10
+
+" Indicator line for 80 characters
+highlight ColorColumn ctermbg=235 guibg=#2c2d27
+let &colorcolumn="80,".join(range(120,999),",")
 
 " Do not jump to the start of line while switching the buffers
 set nostartofline
@@ -119,9 +119,6 @@ vnoremap // y/<C-R>"<CR>
 " Don't move on *
 nnoremap * *<c-o>
 
-" Changing color of matching brackets
-hi! link MatchParen Search
-
 " Highlight search
 set hlsearch
 
@@ -140,6 +137,9 @@ nnoremap <Leader>w :wall<CR>
 " Quit vim
 nnoremap <Leader>q :q<CR>
 
+" Unload (close) current buffer
+nnoremap <Leader>d :bd<CR>
+
 " copy visual selection to os clipboard
 vmap <Leader>y "+y
 
@@ -155,13 +155,6 @@ imap jk <Esc>
 " Substitution is always global
 set gdefault
 
-" Rspec stuff
-let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
-
 " Ale (async lint engine)
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '•'
@@ -170,16 +163,39 @@ let g:ale_statusline_format = ['✖ %d', '⚠ %d', '']
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-set statusline+=%#Error# " switch to Error highlight group
-set statusline+=%{ALEGetStatusLine()} " configured by ale_statusline_format
-set statusline+=%* " reset highlight group
-set statusline+=\  " space
 
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+" Fugitive stuff
+noremap <Leader>gh :Gbrowse<CR>
+noremap <Leader>gb :Gblame<CR>
+noremap <Leader>gs :Gstatus<CR>
+noremap <Leader>gw :Gwrite<CR>
+nnoremap <Leader>gd :Gdiff<CR>
+nnoremap <Leader>ga :Git add %:p<CR><CR>
+nnoremap <Leader>gl :silent! Glog<CR>:bot copen<CR>
+nnoremap <Leader>gt :Gcommit -v -q %:p<CR>
+
 " DelimitMate config
 let b:delimitMate_expand_cr=1
 let b:delimitMate_expand_space=1
+
+" JSX (React) config
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+
+" vim-rsi
+" Remove meta mapping which interfere with the US/GER Umlaut mapping
+let g:rsi_no_meta = 1
+
+let g:user_emmet_settings = {
+\    'javascript.jsx' : {
+\        'extends' : 'jsx',
+\        'quote_char': "'",
+\    },
+\}
+
+let g:vim_jsx_pretty_colorful_config = 1
 
 " Correct syntax-highlight for scss files (OSX)
 au BufRead,BufNewFile *.scss set filetype=scss
@@ -200,6 +216,7 @@ au WinLeave * set nocursorline nocursorcolumn
 au WinEnter * set cursorline cursorcolumn
 set cursorline cursorcolumn
 
+" vim-expand-region
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 
@@ -209,3 +226,4 @@ set listchars=trail:•
 
 " aka 'Oh, that's the key I have been hitting by accident'
 nnoremap Q <nop>
+nnoremap R <nop>

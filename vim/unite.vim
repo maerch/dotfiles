@@ -1,5 +1,7 @@
-nnoremap <silent> <C-p> :Unite -start-insert -ignorecase -smartcase file file_rec/async:! file_mru<CR>
+nnoremap <silent> <C-p> :Unite -start-insert -ignorecase -smartcase file file_rec/async:!<CR>
+nnoremap <silent> <C-b> :Unite -start-insert -ignorecase -smartcase buffer<CR>
 nnoremap <silent> <C-g> :Unite grep:!<CR>
+nnoremap <silent> <C-t> :<C-u>UniteWithCursorWord grep:!<CR>
 nnoremap <silent> <C-o> :UniteResume<CR>
 
 " Start Insert
@@ -20,7 +22,7 @@ call unite#filters#matcher_default#use(['matcher_fuzzy'])
 
 "Matched rank order sorter.  The higher the matched word is or
 "the longer the matched length is, the higher the rank is.
-"call unite#filters#sorter_default#use(['sorter_rank'])
+call unite#filters#sorter_default#use(['sorter_selecta'])
 
 " Compare length sorter
 "call unite#filters#sorter_default#use(['sorter_length'])
@@ -28,7 +30,7 @@ call unite#filters#matcher_default#use(['matcher_fuzzy'])
 "Another matched rank order sorter. Uses the scoring algorithm
 "from selecta: https://github.com/garybernhardt/selecta.
 "If the matched length is shorter, the rank is higher.
-call unite#filters#sorter_default#use(['sorter_selecta'])
+"call unite#filters#sorter_default#use(['sorter_selecta'])
 
 call unite#filters#converter_default#use(['converter_tail'])
 
@@ -57,7 +59,7 @@ let g:unite_source_rec_async_command =
 if executable('ag')
   let g:unite_source_grep_command = 'ag'
   let g:unite_source_grep_default_opts =
-        \ '-i --vimgrep --nocolor --nogroup --hidden --ignore ' .
+        \ '-S --vimgrep --nocolor --nogroup --hidden --ignore ' .
         \ '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
   let g:unite_source_grep_recursive_opt = ''
 endif
