@@ -40,7 +40,8 @@ NeoBundle 'terryma/vim-expand-region'
 
 NeoBundle 'ap/vim-css-color'
 
-"NeoBundle 'flowtype/vim-flow'
+NeoBundle 'SirVer/ultisnips'
+NeoBundle 'honza/vim-snippets'
 
 " My Bundles here:
 " Refer to |:NeoBundle-examples|.

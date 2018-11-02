@@ -13,14 +13,14 @@ set wildmenu
 set autoread
 au CursorHold * checktime
 
-colorscheme jellybeans
+colorscheme nova
 
 " Status bar
 let g:lightline = {
-      \ 'colorscheme': 'jellybeans',
+      \ 'colorscheme': 'nova',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'ale', 'fugitive', 'filename' ] ]
+      \             [ 'fugitive', 'filename' ] ]
       \ },
       \ 'component': {
       \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}',
@@ -101,15 +101,15 @@ nnoremap <silent> <Leader>se <C-w>=
 set scrolloff=10
 
 " Indicator line for 80 characters
-highlight ColorColumn ctermbg=235 guibg=#2c2d27
-let &colorcolumn="80,".join(range(120,999),",")
+highlight ColorColumn ctermbg=235
+let &colorcolumn="80"
 
 " Do not jump to the start of line while switching the buffers
 set nostartofline
 
 " Highlight current line
 set cursorline
-hi CursorLine term=bold cterm=bold guibg=Grey20
+hi CursorLine term=bold cterm=bold
 
 " Cursor is in the center after search
 nnoremap n nzz
@@ -149,7 +149,7 @@ nnoremap <Leader>r :source $MYVIMRC<CR>
 " Toggle paste mode
 set pastetoggle=<F10>
 
-" Esc 
+" Esc
 imap jk <Esc>
 
 " Substitution is always global
@@ -232,7 +232,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " Trailing whitespace
 set list
-set listchars=trail:•
+set listchars=tab:>·,trail:•
 
 " aka 'Oh, that's the key I have been hitting by accident'
 nnoremap Q <nop>
