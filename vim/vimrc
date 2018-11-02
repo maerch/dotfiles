@@ -159,13 +159,18 @@ set gdefault
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '•'
 let g:ale_sign_warning = '•'
-let g:ale_statusline_format = ['✖ %d', '⚠ %d', '']
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let b:ale_linters = {'javascript': ['flow-language-server', 'eslint']}
 
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+nnoremap <Leader>fd :ALEDetail<CR>
+nnoremap <Leader>ft :ALEHover<CR>
+nnoremap <Leader>fg :ALEGoToDefinition<CR>*
+nnoremap <Leader>fr :ALEFindReferences<CR>
 
 " Fugitive stuff
 noremap <Leader>gh :Gbrowse<CR>
@@ -219,6 +224,11 @@ set cursorline cursorcolumn
 " vim-expand-region
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
+
+" Snippets
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " Trailing whitespace
 set list

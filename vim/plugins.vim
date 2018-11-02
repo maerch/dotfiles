@@ -17,6 +17,7 @@ NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-eunuch'
 
 NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle 'trevordmiller/nova-vim'
 
 NeoBundle 'w0rp/ale'
 
