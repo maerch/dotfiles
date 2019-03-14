@@ -20,6 +20,10 @@ NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'trevordmiller/nova-vim'
 
 NeoBundle 'w0rp/ale'
+NeoBundle 'prabirshrestha/async.vim'
+NeoBundle 'prabirshrestha/vim-lsp'
+NeoBundle 'prabirshrestha/asyncomplete.vim'
+NeoBundle 'prabirshrestha/asyncomplete-lsp.vim'
 
 NeoBundle 'Shougo/vimproc.vim'
 NeoBundle 'Shougo/unite.vim'
@@ -27,7 +31,8 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'scrooloose/nerdcommenter'
 
 NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'maxmellon/vim-jsx-pretty'
+"NeoBundle 'maxmellon/vim-jsx-pretty'
+NeoBundle 'mxw/vim-jsx'
 NeoBundle 'prettier/vim-prettier'
 
 NeoBundle 'mattn/emmet-vim'
@@ -42,6 +47,8 @@ NeoBundle 'ap/vim-css-color'
 
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'honza/vim-snippets'
+
+NeoBundle 'liuchengxu/vim-which-key'
 
 " My Bundles here:
 " Refer to |:NeoBundle-examples|.

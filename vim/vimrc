@@ -14,6 +14,7 @@ set autoread
 au CursorHold * checktime
 
 colorscheme nova
+let g:nova_transparent = 1
 
 " Status bar
 let g:lightline = {
@@ -79,7 +80,16 @@ set visualbell
 set mouse=a
 
 " Leader needs space
-let mapleader = "\<Space>"
+let g:mapleader = "\<Space>"
+let g:maplocalleader = ','
+
+let g:which_key_map =  {}
+call which_key#register('<Space>', "g:which_key_map")
+
+nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
+nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
+
+set timeoutlen=500
 
 " Clear search with <leader><space>
 nnoremap <leader><space> :noh<cr>
@@ -172,6 +182,20 @@ nnoremap <Leader>ft :ALEHover<CR>
 nnoremap <Leader>fg :ALEGoToDefinition<CR>*
 nnoremap <Leader>fr :ALEFindReferences<CR>
 
+if executable('flow-language-server')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'flow-language-server',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'flow-language-server --stdio --try-flow-bin']},
+        \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), '.flowconfig'))},
+        \ 'whitelist': ['javascript', 'javascript.jsx'],
+        \ })
+endif
+
+set completeopt-=preview
+let g:asyncomplete_smart_completion = 1
+let g:asyncomplete_auto_popup = 1
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+
 " Fugitive stuff
 noremap <Leader>gh :Gbrowse<CR>
 noremap <Leader>gb :Gblame<CR>
@@ -230,6 +254,8 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
+let g:javascript_plugin_flow = 1
+
 " Trailing whitespace
 set list
 set listchars=tab:>·,trail:•
@@ -237,3 +263,4 @@ set listchars=tab:>·,trail:•
 " aka 'Oh, that's the key I have been hitting by accident'
 nnoremap Q <nop>
 nnoremap R <nop>
+

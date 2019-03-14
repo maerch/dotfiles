@@ -8,6 +8,6 @@
 	default = current
 [alias]
   st = status -sb
-  lg = log --graph --decorate --oneline --abbrev-commit
+  lg= log --graph --pretty=format:'%C(yellow)%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=short
 [http]
 	postBuffer = 2M
