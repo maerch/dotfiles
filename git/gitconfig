@@ -7,7 +7,12 @@
 [push]
 	default = current
 [alias]
+  branch-name = "!git rev-parse --abbrev-ref HEAD"
+  recent = for-each-ref --sort=-committerdate --format='%(refname:short)' refs/heads/
+  co = !git checkout $(git recent | fzf)
   st = status -sb
   lg= log --graph --pretty=format:'%C(yellow)%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=short
+  pushf = push --force-with-lease
+  nuke = "!git reset --hard origin/$(git branch-name); git clean -f;"
 [http]
 	postBuffer = 2M

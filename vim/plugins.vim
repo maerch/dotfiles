@@ -18,6 +18,7 @@ NeoBundle 'tpope/vim-eunuch'
 
 NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'trevordmiller/nova-vim'
+NeoBundle 'morhetz/gruvbox'
 
 NeoBundle 'w0rp/ale'
 NeoBundle 'prabirshrestha/async.vim'
@@ -27,6 +28,8 @@ NeoBundle 'prabirshrestha/asyncomplete-lsp.vim'
 
 NeoBundle 'Shougo/vimproc.vim'
 NeoBundle 'Shougo/unite.vim'
+
+NeoBundle 'junegunn/fzf.vim'
 
 NeoBundle 'scrooloose/nerdcommenter'
 

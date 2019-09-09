@@ -4,16 +4,45 @@ set noswapfile
 set nocompatible
 
 source ~/.vim/plugins.vim
-source ~/.vim/unite.vim
+"source ~/.vim/unite.vim
+set rtp+=/usr/local/opt/fzf
+
+nnoremap <silent> <C-p> :call FzfPreview()<CR>
+nnoremap <silent> <C-b> :Buffers<CR>
+nnoremap <C-g> :Rg 
+
+function! FzfPreview()
+  call fzf#run({'sink': 'e', 'down': '40%', 'options': '--history=$HOME/.fzf_history --border --preview "bat --color always {}"'})
+endfunction
+" Mapping selecting mappings
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+
+" Insert mode completion
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
+
+" ripgrep
+if executable('rg')
+  let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
+  set grepprg=rg\ --vimgrep
+  command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
+endif
 
 set path=+**
 set wildmenu
+
+set foldmethod=syntax
+set nofoldenable
 
 " check file change every 4 seconds ('CursorHold') and reload the buffer upon detecting change
 set autoread
 au CursorHold * checktime
 
-colorscheme nova
+colorscheme gruvbox
 let g:nova_transparent = 1
 
 " Status bar
@@ -172,6 +201,7 @@ let g:ale_sign_warning = '•'
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_lint_delay = 2000
 let b:ale_linters = {'javascript': ['flow-language-server', 'eslint']}
 
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
