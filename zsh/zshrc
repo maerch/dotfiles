@@ -49,3 +49,5 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # Local user path added in front for homebrew
 export PATH=/usr/local/bin:$PATH
+
+source /Users/maerch/Library/Preferences/org.dystroy.broot/launcher/bash/br

@@ -162,7 +162,7 @@ nnoremap g# g#zz
 vnoremap // y/<C-R>"<CR>
 
 " Don't move on *
-nnoremap * *<c-o>
+nnoremap * :keepjumps normal! mi*`i<CR>
 
 " Highlight search
 set hlsearch
