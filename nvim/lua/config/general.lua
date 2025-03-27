@@ -33,3 +33,17 @@ set.incsearch = true;
 
 -- Substitution is always global
 set.gdefault = true;
+
+set.updatetime = 1000
+
+-- Always show the gutter
+set.signcolumn= 'yes'
+
+-- Highlight yanked text
+vim.api.nvim_create_autocmd("TextYankPost", {
+  desc = "Highlight yanked text",
+  group = vim.api.nvim_create_augroup("HighlightYank", { clear = true }),
+  callback = function()
+    vim.highlight.on_yank({ higroup = 'DiffAdd', timeout = 500 })
+  end,
+})

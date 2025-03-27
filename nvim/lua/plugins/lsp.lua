@@ -1,31 +1,31 @@
-require("mason").setup()
-require("mason-lspconfig").setup()
+return {
+  {
+    "neovim/nvim-lspconfig",
+    dependencies = {
+      -- Only for lua development
+      {
+        "folke/lazydev.nvim",
+        ft = "lua", -- only load on lua files
+        opts = {
+          library = {
+            -- See the configuration section for more details
+            -- Load luvit types when the `vim.uv` word is found
+            { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+          },
+        },
+      },
+    },
+    config = function()
+      vim.diagnostic.config({
+        signs = false,  -- This disables the signs in the sign column
+        -- Other diagnostic settings can remain as needed
+        virtual_text = true,
+        underline = true,
+        update_in_insert = false,
+        severity_sort = true,
+      })
 
--- vim.lsp.set_log_level 'debug'
--- require('vim.lsp.log').set_format_func(vim.inspect)
-
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
-require("lspconfig").ts_ls.setup({
-  capabilities = capabilities,
-
-  on_attach = function()
-    vim.keymap.set("n", 'm', vim.diagnostic.open_float, {buffer = 0})
-    vim.keymap.set("n", "K", vim.lsp.buf.hover, {buffer=0})
-    vim.keymap.set("n", "gd", vim.lsp.buf.definition, {buffer=0})
-    vim.keymap.set("n", "gr", vim.lsp.buf.references, {buffer=0})
-    vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, {buffer=0})
-    vim.keymap.set("n", "gh", vim.lsp.buf.code_action, {buffer=0})
-    vim.keymap.set("n", "gn", vim.diagnostic.goto_next, {buffer = 0})
-    vim.keymap.set("n", "gp", vim.diagnostic.goto_prev, {buffer = 0})
-    vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename)
-  end
-})
-
-
--- close quickfix menu after selecting choice
-vim.api.nvim_create_autocmd(
-  "FileType", {
-  pattern={"qf"},
-  command=[[nnoremap <buffer> <CR> <CR>:cclose<CR>]]})
-
-require'lspconfig'.eslint.setup{}
+      require('lspconfig').lua_ls.setup {}
+    end
+  }
+}

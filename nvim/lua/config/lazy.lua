@@ -1,5 +1,3 @@
-local plugins = require('plugins.plugins');
-
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 print(lazypath);
@@ -24,20 +22,20 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
-vim.keymap.set('v', '<leader>x', ':lua<CR>')
-
-vim.api.nvim_create_autocmd("TextYankPost", {
-  desc = "Highlight yanked text",
-  group = vim.api.nvim_create_augroup("HighlightYank", { clear = true }),
-  callback = function()
-    vim.highlight.on_yank({ higroup = 'DiffAdd', timeout = 500 })
-  end,
-})
-
 -- Setup lazy.nvim
 require("lazy").setup({
-  spec = plugins,
-  -- Configure any other settings here. See the documentation for more details.
+  spec = {
+    {
+    "folke/tokyonight.nvim",
+    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000, -- make sure to load this before all the other start plugins
+    config = function()
+      -- load the colorscheme here
+      vim.cmd([[colorscheme tokyonight]])
+    end,
+    },
+    { import = "plugins" },
+  },
   -- colorscheme that will be used when installing plugins.
   install = { colorscheme = { "habamax" } },
   -- automatically check for plugin updates
