@@ -2,17 +2,32 @@
 	name = Marcin Skirzynski
 	email = marcin.skirzynski@gmail.com
 [core]
-	editor = vim
+	editor = nvim
 	pager = diff-so-fancy | less --tabs=4 -RFX
 [push]
 	default = current
 [alias]
   branch-name = "!git rev-parse --abbrev-ref HEAD"
-  recent = for-each-ref --sort=-committerdate --format='%(refname:short)' refs/heads/
-  co = !git checkout $(git recent | fzf)
+  recent = "!git for-each-ref --sort='committerdate:iso8601' --format='%(refname:short)|%(committerdate:relative)|%(committername)' refs/heads/ | column -s'|' -t"
+  co = !git recent | fzf --tac --height=20| cut -f1 -w | xargs git checkout
+  sp = !git stash list | fzf --height=20| cut -f1 -d : | xargs git stash pop
+  ss = !git stash list | fzf --height=20| cut -f1 -d : | xargs git stash show -p
+  delete-branch = !git branch -d $(git recent | fzf)
   st = status -sb
   lg= log --graph --pretty=format:'%C(yellow)%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=short
   pushf = push --force-with-lease
   nuke = "!git reset --hard origin/$(git branch-name); git clean -f;"
+  ref = reflog --format='%C(auto)%h %>(17)%gd %C(blue)%ci %C(green)%aE%C(reset)  %gs'
+[rebase]
+  instructionformat = %ai %<(15,trunc)%aN  %s %d
 [http]
 	postBuffer = 2M
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[init]
+	defaultBranch = main
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
