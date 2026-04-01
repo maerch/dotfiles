@@ -1,23 +1,9 @@
-return {
-  {
-    "nvim-treesitter/nvim-treesitter",
-    cmd = "TSUpdate",
-    config = function()
-      require'nvim-treesitter.configs'.setup {
-        -- A list of parser names, or "all" (the listed parsers MUST always be installed)
-        ensure_installed = { "c", "javascript", "typescript", "tsx", "json", "lua" },
+-- Neovim 0.12 has built-in treesitter highlighting via vim.treesitter.start().
+-- We just need to enable it for all filetypes that have a parser installed.
+vim.api.nvim_create_autocmd("FileType", {
+  callback = function(args)
+    pcall(vim.treesitter.start, args.buf)
+  end,
+})
 
-        highlight = {
-          enable = true,
-        },
-        refactor = {
-          highlight_definitions = {
-            enable = true,
-            -- Set to false if you have an `updatetime` of ~100.
-            clear_on_cursor_move = true,
-          },
-        },
-      }
-    end
-  },
-}
+return {}
