@@ -40,8 +40,8 @@ map('n', '<C-l>', '<C-w>l', {});
 -- Code navigation
 wk.add({ ']', group = "Next" });
 wk.add({ '[', group = "Prev" });
-map('n', ']h', '<Plug>(GitGutterNextHunk)', { desc = 'Next hunk' });
-map('n', '[h', '<Plug>(GitGutterPrevHunk)', { desc = 'Prev hunk' });
+map('n', ']h', '<cmd>Gitsigns next_hunk<CR>', { desc = 'Next hunk' });
+map('n', '[h', '<cmd>Gitsigns prev_hunk<CR>', { desc = 'Prev hunk' });
 
 -- Intendation without losing visual selection
 map('v', '>', '>gv', {});
@@ -94,8 +94,11 @@ map('n', '<leader>fld', builtin.lsp_definitions,               { desc = "definit
 map('n', '<leader>flt', builtin.lsp_type_definitions,          { desc = "type definitions" })
 map('n', '<leader>flx', builtin.diagnostics,                   { desc = "diagnostics" })
 
+map('n', '<leader>ca', vim.lsp.buf.code_action, { desc = "Code Actions" })
+
 local neogit = require('neogit')
 wk.add({ '<leader>v', group = 'vcs (git)' });
 map('n', '<leader>vs', neogit.open,                              { desc = "Status" })
 map('n', '<leader>vc', function() neogit.open({ "commit" }) end, { desc = "Commit" })
 map('n', '<leader>vb', '<cmd>Gitsigns blame<CR>',                { desc = "Blame" })
+
