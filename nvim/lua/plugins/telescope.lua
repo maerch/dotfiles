@@ -12,7 +12,7 @@ return {
             num_pickers = 10
           },
           path_display = {
-            "truncate"
+            truncate = 3
           },
           dynamic_preview_title = true
         },
@@ -20,9 +20,14 @@ return {
           lsp_references = {
             show_line = false,
             theme = 'cursor',
+            layout_config = {
+              width = 0.7,
+              height = 0.3,
+              preview_width = 0.3,
+            },
           },
           find_files = {
-            hidden = true,
+            hidden = false,
             -- theme = 'dropdown',
           },
         },
